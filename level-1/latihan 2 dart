@@ -1,0 +1,35 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  
+  String nama = 'Ni Komang Mirna Asih';
+  int umur = 21;
+  double tinggiBadan = 154;
+  bool mahasiswaAktif = true;
+  var semester = 5; 
+
+ 
+  final String universitas = 'Universitas Pendidikan Ganesha';
+  const double pi = 3.56;
+
+  
+  print(' Data Mahasiswa ');
+  print('Nama: $nama (Tipe: ${nama.runtimeType})');
+  print('Umur: $umur tahun (Tipe: ${umur.runtimeType})');
+  print('Tinggi Badan: $tinggiBadan cm (Tipe: ${tinggiBadan.runtimeType})');
+  print('Mahasiswa Aktif: $mahasiswaAktif (Tipe: ${mahasiswaAktif.runtimeType})');
+  print('Semester: $semester (Tipe: ${semester.runtimeType})');
+  print('Universitas: $universitas (Tipe: ${universitas.runtimeType})');
+  print('Konstanta Pi: $pi (Tipe: ${pi.runtimeType})');
+
+ 
+  semester = 6; 
+  print('\nSemester setelah naik tingkat: $semester');
+
+ 
+   
+  // universitas = 'Universitas Lain'; 
+  // pi = 3.14159;                   
+}
+
