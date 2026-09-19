@@ -1,0 +1,34 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  int kodeHari = 9;
+
+  print('Kode Hari yang dimasukkan: $kodeHari');
+  switch (kodeHari) {
+    case 1:
+      print('Nama Hari: Senin');
+      break;
+    case 2:
+      print('Nama Hari: Selasa');
+      break;
+    case 3:
+      print('Nama Hari: Rabu');
+      break;
+    case 4:
+      print('Nama Hari: Kamis');
+      break;
+    case 5:
+      print('Nama Hari: Jumat');
+      break;
+    case 6:
+      print('Nama Hari: Sabtu');
+      break;
+    case 7:
+      print('Nama Hari: Minggu');
+      break;
+    // 3. Tambahkan default untuk nilai di luar 1-7
+    default:
+      print('Error: Kode hari tidak valid! Masukkan angka antara 1 sampai 7.');
+  }
+}
