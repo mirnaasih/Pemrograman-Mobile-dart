@@ -1,0 +1,25 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  
+  int nilai = 102;
+
+  print('Nilai mahasiswa: $nilai');
+ 
+  if (nilai < 0 || nilai > 100) {
+    print('Error: Nilai tidak valid! Harap masukkan nilai antara 0 sampai 100.');
+  } 
+  
+  else if (nilai >= 85) {
+    print('Grade: A');
+  } else if (nilai >= 75) {
+    print('Grade: B');
+  } else if (nilai >= 65) {
+    print('Grade: C');
+  } else if (nilai >= 50) {
+    print('Grade: D');
+  } else {
+    print('Grade: E');
+  }
+}
