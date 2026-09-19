@@ -1,0 +1,33 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  // 1. Perulangan for: menampilkan angka 1 sampai 10
+  print('--- 1. Perulangan For (Angka 1 - 10) ---');
+  for (int i = 1; i <= 10; i++) {
+    print('Angka ke-$i');
+  }
+
+  // 2. Perulangan while: menampilkan bilangan genap 2 sampai 20
+  print('\n--- 2. Perulangan While (Bilangan Genap 2 - 20) ---');
+  int genap = 2;
+  while (genap <= 20) {
+    print('Bilangan genap: $genap');
+    genap += 2; // Menambah nilai 2 setiap iterasi
+  }
+
+  // 3. Perulangan do-while: membuat countdown dari 5 sampai 1
+  print('\n--- 3. Perulangan Do-While (Countdown 5 - 1) ---');
+  int countdown = 5;
+  do {
+    print('Hitung mundur: $countdown');
+    countdown--;
+  } while (countdown >= 1);
+
+  // Challenge: Tabel perkalian angka 7 dari 7 x 1 sampai 7 x 10
+  print('\n--- Challenge: Tabel Perkalian 7 ---');
+  for (int i = 1; i <= 10; i++) {
+    int hasil = 7 * i;
+    print('7 x $i = $hasil');
+  }
+}
