@@ -1,0 +1,28 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  
+  int angkaPertama = 15;
+  int angkaKedua = 4;
+
+  print(' Nilai Variabel ');
+  print('Angka Pertama: $angkaPertama');
+  print('Angka Kedua: $angkaKedua\n');
+
+ 
+  print(' Hasil Aritmatika ');
+  print('Penjumlahan ($angkaPertama + $angkaKedua) = ${angkaPertama + angkaKedua}');
+  print('Pengurangan ($angkaPertama - $angkaKedua) = ${angkaPertama - angkaKedua}');
+  print('Perkalian ($angkaPertama * $angkaKedua) = ${angkaPertama * angkaKedua}');
+  print('Pembagian biasa ($angkaPertama / $angkaKedua) = ${angkaPertama / angkaKedua}');
+  print('Integer division / pembagian bulat ($angkaPertama ~/ $angkaKedua) = ${angkaPertama ~/ angkaKedua}');
+  print('Modulo / sisa bagi ($angkaPertama % $angkaKedua) = ${angkaPertama % angkaKedua}\n');
+
+  
+  print(' Hasil Perbandingan ');
+  print('Apakah $angkaPertama lebih besar dari $angkaKedua? ${angkaPertama > angkaKedua}');
+  print('Apakah $angkaPertama lebih kecil dari $angkaKedua? ${angkaPertama < angkaKedua}');
+  print('Apakah $angkaPertama sama dengan $angkaKedua? ${angkaPertama == angkaKedua}');
+  print('Apakah $angkaPertama tidak sama dengan $angkaKedua? ${angkaPertama != angkaKedua}');
+}
