@@ -1,0 +1,25 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  print(' Pengujian Null Safety \n');
+
+  
+  String? namaPanggilan;
+  print('1. Nilai awal namaPanggilan: $namaPanggilan');
+
+  print('2. Menggunakan operator ??: ${namaPanggilan ?? "Belum ada panggilan"}');
+
+  namaPanggilan ??= 'Mirna';
+  print('3. Setelah menggunakan ??= : $namaPanggilan');
+
+  String? teks; 
+  print('4. Panjang teks (saat null) dengan ?.length: ${teks?.length}');
+  teks = 'Belajar Dart Null Safety';
+  print('   Panjang teks ("$teks") setelah diisi: ${teks.length}');
+
+ 
+  print('\n Challenge: Penjelasan Bahaya Operator ! ');
+  print('Operator ! (null-assertion) berbahaya jika dipaksakan pada variabel yang ternyata '
+        'masih bernilai null saat runtime, karena akan menyebabkan aplikasi crash / error.');
+}
