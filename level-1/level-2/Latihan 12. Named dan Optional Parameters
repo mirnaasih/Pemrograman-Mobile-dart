@@ -1,0 +1,20 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+String buatProfil({required String nama, required int umur, String kota = 'Singaraja'}) {
+  return 'Nama: $nama, Umur: $umur tahun, Asal Kota: $kota';
+}
+
+void main() {
+  print(' Pengujian Named dan Optional Parameters \n');
+
+  String hasil1 = buatProfil(nama: 'Ni Komang Mirna Asih', umur: 21, kota: 'Gianyar');
+  print('Pemanggilan 1:');
+  print(hasil1);
+  String hasil2 = buatProfil(kota: 'Singaraja', umur: 21, nama: 'Budi Santoso');
+  print('\nPemanggilan 2 (Urutan dibalik):');
+  print(hasil2);
+  String hasil3 = buatProfil(nama: 'Siti Rahma', umur: 19);
+  print('\nPemanggilan 3 (Menggunakan default value kota):');
+  print(hasil3);
+}
