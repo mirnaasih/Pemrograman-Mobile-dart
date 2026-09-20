@@ -1,0 +1,18 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+double hitungLuasArrow(double p, double l) => p * l;
+
+void main() {
+  print('1. Pengujian Arrow Function ');
+  double luas = hitungLuasArrow(10.0, 5.0);
+  print('Luas (menggunakan arrow function) = $luas\n');
+  List<String> keahlian = ['UI/UX Design', '2D Animation', 'Laravel Web Dev', 'Python GUI'];
+
+  print('2. forEach dengan Anonymous Function');
+  keahlian.forEach((String item) {
+    print('- $item');
+  });
+  print('\n3. forEach dengan Arrow Function');
+  keahlian.forEach((item) => print('-> $item'));
+}
