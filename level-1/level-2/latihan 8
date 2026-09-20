@@ -1,0 +1,30 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  Map<String, dynamic> mahasiswa = {
+    'nama': 'Ni Komang Mirna Asih',
+    'nim': '2415051018',
+    'semester': 5,
+    'aktif': true,
+  };
+
+  print(' 1. Data Map Awal ');
+  print(mahasiswa);
+
+  print('\n 2. Mengambil Nilai Berdasarkan Key');
+  print('Nama: ${mahasiswa['nama']}');
+  print('NIM: ${mahasiswa['nim']}');
+  print('Semester: ${mahasiswa['semester']}');
+  print('Status Aktif: ${mahasiswa['aktif']}');
+
+  mahasiswa['prodi'] = 'Pendidikan Teknik Informatika';
+  
+  print('\n 3. Setelah Menambahkan Key "prodi" ');
+  print('Map terbaru: $mahasiswa');
+
+  print('\n 4. Iterasi Seluruh Key dan Value ');
+  mahasiswa.forEach((key, value) {
+    print('Key: $key -> Value: $value');
+  });
+}
