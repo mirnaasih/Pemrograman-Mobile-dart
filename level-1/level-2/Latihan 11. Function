@@ -1,0 +1,30 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+double hitungLuasPersegiPanjang(double p, double l) {
+  return p * l;
+}
+
+bool cekKelulusan(int nilai) {
+  if (nilai >= 75) {
+    return true;
+  } else {
+    return false;
+  }
+}
+void main() {
+  print('Pengujian Function \n');
+  double panjang = 12.5;
+  double lebar = 5.0;
+  double luas = hitungLuasPersegiPanjang(panjang, lebar);
+  
+  print('Menghitung Luas Persegi Panjang:');
+  print('Panjang: $panjang, Lebar: $lebar');
+  print('Luas Persegi Panjang = $luas\n');
+  int nilaiMahasiswa = 82;
+  bool statusLulus = cekKelulusan(nilaiMahasiswa);
+
+  print('Pengecekan Kelulusan Mahasiswa:');
+  print('Nilai Mahasiswa: $nilaiMahasiswa');
+  print('Apakah Lulus? $statusLulus');
+}
