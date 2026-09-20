@@ -1,0 +1,30 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  List<int> nilaiMahasiswa = [65, 80, 90, 70, 85, 95, 60, 78, 88, 72];
+
+  print(' 1. Daftar Nilai Awal ');
+  print(nilaiMahasiswa);
+
+  var nilaiLulus = nilaiMahasiswa.where((nilai) => nilai >= 75).toList();
+  print('\n 2. Nilai >= 75 (Menggunakan where) ');
+  print(nilaiLulus);
+  var formatNilai = nilaiMahasiswa.map((nilai) => 'Nilai: $nilai').toList();
+  print('\n 3. Format String (Menggunakan map) ');
+  print(formatNilai);
+
+  int totalNilai = nilaiMahasiswa.fold(0, (sum, element) => sum + element);
+  double rataRata = totalNilai / nilaiMahasiswa.length;
+
+  print('\n 4. Total dan Rata-rata (Menggunakan fold) ');
+  print('Total Keseluruhan Nilai: $totalNilai');
+  print('Rata-rata Nilai: $rataRata');
+
+  int nilaiMax = nilaiMahasiswa.reduce((a, b) => a > b ? a : b);
+  int nilaiMin = nilaiMahasiswa.reduce((a, b) => a < b ? a : b);
+
+  print('\nChallenge: Nilai Maksimum & Minimum');
+  print('Nilai Tertinggi (Max): $nilaiMax');
+  print('Nilai Terendah (Min): $nilaiMin');
+}
