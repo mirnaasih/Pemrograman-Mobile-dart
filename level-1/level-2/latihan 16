@@ -1,0 +1,30 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+
+class Mahasiswa {
+  String nama;
+  String nim;
+  int semester;
+
+  Mahasiswa(this.nama, this.nim, this.semester);
+
+  void tampilkanProfil() {
+    print('Nama     : $nama');
+    print('NIM      : $nim');
+    print('Semester : $semester');
+  }
+}
+
+void main() {
+  print('Pengujian Class dan Object \n');
+
+  Mahasiswa mhs1 = Mahasiswa('Ni Komang Mirna Asih', '2415051018', 5);
+  Mahasiswa mhs2 = Mahasiswa('Artha', '2415051025', 5);
+
+  print('Profil Mahasiswa 1:');
+  mhs1.tampilkanProfil();
+  
+  print('\nProfil Mahasiswa 2:');
+  mhs2.tampilkanProfil();
+}
