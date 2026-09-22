@@ -1,0 +1,51 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+class Student {
+  String nama;
+  List<int> nilai;
+
+  Student(this.nama, this.nilai);
+  double get rataRata {
+    if (nilai.isEmpty) return 0.0;
+    int total = nilai.reduce((a, b) => a + b);
+    return total / nilai.length;
+  }
+  bool get lulus => rataRata >= 75.0;
+
+  @override
+  String toString() {
+    return '$nama (Rata-rata: ${rataRata.toStringAsFixed(1)})';
+  }
+}
+
+void main() {
+  print(' Mini Project: Student Score Analyzer \n');
+
+  List<Student> daftarSiswa = [
+    Student('Ni Komang Mirna Asih', [85, 90, 88]),
+    Student('Budi Santoso', [60, 65, 70]),
+    Student('Siti Rahma', [92, 95, 90]),
+    Student('Artha Wijaya', [70, 72, 68]),
+    Student('Dewi Lestari', [80, 82, 78]),
+  ];
+
+
+  print('Daftar Siswa yang Lulus (Nilai Rata-rata >= 75):');
+  var siswaLulus = daftarSiswa.where((s) => s.lulus);
+  for (var siswa in siswaLulus) {
+    print('- $siswa');
+  }
+
+  daftarSiswa.sort((a, b) => b.rataRata.compareTo(a.rataRata));
+
+  print('\nDaftar Siswa Berdasarkan Urutan Rata-rata Tertinggi:');
+  for (var siswa in daftarSiswa) {
+    print('- $siswa');
+  }
+
+  Student topStudent = daftarSiswa.first;
+  
+  print('\nChallenge: Top Student ');
+  print('Siswa dengan peringkat pertama adalah: ${topStudent.nama} dengan rata-rata ${topStudent.rataRata.toStringAsFixed(1)}.');
+}
