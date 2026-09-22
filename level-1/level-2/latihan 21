@@ -1,0 +1,41 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+class Kotak<T> {
+  T isi;
+
+  Kotak(this.isi);
+
+  void tampilkanIsi() {
+    print('Isi kotak: $isi (Tipe data: ${T})');
+  }
+}
+
+
+T pertama<T>(List<T> data) {
+  if (data.isEmpty) {
+    throw ArgumentError('List tidak boleh kosong!');
+  }
+  return data.first;
+}
+
+void main() {
+  print('Pengujian Generic Class & Function \n');
+
+  Kotak<String> kotakString = Kotak<String>('Buku Pemrograman Mobile');
+  Kotak<int> kotakInt = Kotak<int>(2026); 
+
+  print('Pengujian Kotak Generic:');
+  kotakString.tampilkanIsi();
+  kotakInt.tampilkanIsi();
+
+  print('\nPengujian Challenge Function Generic (Elemen Pertama):');
+  List<String> daftarMatkul = ['Pemrograman Mobile', 'Struktur Data', 'Basis Data'];
+  List<int> daftarNilai = [85, 90, 78];
+
+  String elemenPertamaStr = pertama(daftarMatkul);
+  int elemenPertamaInt = pertama(daftarNilai);
+
+  print('Elemen pertama dari List<String>: $elemenPertamaStr');
+  print('Elemen pertama dari List<int>: $elemenPertamaInt');
+}
