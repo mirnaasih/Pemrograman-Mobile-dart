@@ -1,0 +1,20 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+void main() {
+  print('Pengujian Stream Transformation \n');
+
+  Stream<int> angkaStream = Stream.fromIterable([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+  angkaStream
+      .where((angka) => angka % 2 == 0) // Hanya melewatkan angka genap (2, 4, 6, 8, 10)
+      .map((angkaGenap) => angkaGenap * 10) // Mengalikan setiap angka genap dengan 10
+      .listen(
+        (hasil) {
+          print('Hasil transformasi: $hasil');
+        },
+        onDone: () {
+          print('\nSemua data Stream selesai diproses.');
+        },
+      );
+}
