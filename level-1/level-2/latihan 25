@@ -1,0 +1,48 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+Future<String> tugasPertama() async {
+  await Future.delayed(Duration(seconds: 1));
+  return 'Hasil dari Tugas 1 (1 detik)';
+}
+
+Future<String> tugasKedua() async {
+  await Future.delayed(Duration(seconds: 2));
+  return 'Hasil dari Tugas 2 (2 detik)';
+}
+
+Future<String> tugasKetiga() async {
+  await Future.delayed(Duration(seconds: 3));
+  return 'Hasil dari Tugas 3 (3 detik)';
+}
+
+Future<void> main() async {
+  print('Pengujian Future.wait (Eksekusi Paralel)n');
+  print('Memulai semua Future secara bersamaan...');
+
+  Stopwatch stopwatch = Stopwatch()..start();
+
+  List<String> hasilSemuaTugas = await Future.wait([
+    tugasPertama(),
+    tugasKedua(),
+    tugasKetiga(),
+  ]);
+
+  stopwatch.stop();
+
+  print('\nSemua hasil diterima:');
+  for (String hasil in hasilSemuaTugas) {
+    print('- $hasil');
+  }
+
+  print('\nTotal waktu eksekusi Future.wait: ${stopwatch.elapsedMilliseconds} ms (~3 detik)');
+
+  
+  print('\n Challenge: Perbandingan Konseptual ');
+  print('1. Menggunakan Future.wait (Paralel):');
+  print('   - Semua tugas dijalankan serentak secara bersamaan.');
+  print('   - Total waktu eksekusi hanya bergantung pada durasi Future yang PALING LAMA (yaitu 3 detik).');
+  print('\n2. Menggunakan Await Berurutan (Sequential):');
+  print('   - Tugas dijalankan satu per satu secara bergantian.');
+  print('   - Total waktu eksekusi adalah PENJUMLAHAN dari seluruh durasi (1 + 2 + 3 = 6 detik).');
+}
