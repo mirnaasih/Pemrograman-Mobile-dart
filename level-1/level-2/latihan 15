@@ -1,0 +1,28 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+
+late String token;
+
+void main() {
+  print(' Pengujian Keyword late \n');
+
+  /* 
+   * Catatan untuk Poin 3 (Simulasi Error):
+   * Jika baris perintah print(token) di bawah ini dijalankan sebelum variabel 'token' diisi,
+   * maka Dart akan melempar runtime error:
+   * "LateInitializationError: Field 'token' has not been initialized."
+   */
+  // print(token); // (Buka komentar baris ini jika ingin melihat error-nya secara langsung di DartPad)
+
+  
+  token = 'abc123tokenAman';
+  print('2. Nilai token setelah diinisialisasi: $token');
+
+ 
+  print('\n 4. Penjelasan late vs String?');
+  print('Keyword "late" lebih tepat digunakan dibandingkan "String?" ketika:');
+  print('1. Kita yakin 100% bahwa variabel tersebut pasti akan diisi nilainya sebelum nanti diakses.');
+  print('2. Kita ingin menghindari kerumitan pengecekan null (?) atau null-assertion (!) setiap kali variabel dipanggil.');
+  print('3. Digunakan untuk inisialisasi tertunda (lazy initialization) atau objek yang bergantung pada proses lain saat awal berjalan.');
+}
