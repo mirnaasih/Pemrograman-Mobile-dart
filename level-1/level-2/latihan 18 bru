@@ -1,0 +1,36 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+
+class Pengguna {
+  String nama;
+
+  Pengguna(this.nama);
+
+  void login() {
+    print('$nama telah masuk ke sistem.');
+  }
+}
+
+class Mahasiswa extends Pengguna {
+  String nim;
+
+  Mahasiswa(String nama, this.nim) : super(nama);
+
+  @override
+  void login() {
+    print('Mahasiswa atas nama $nama (NIM: $nim) berhasil login ke portal akademik.');
+  }
+}
+
+void main() {
+  print(' Pengujian Inheritance dan Override \n');
+
+
+  Pengguna userUmum = Pengguna('Bapak Petugas');
+  userUmum.login();
+
+  print('');
+  Mahasiswa mhs = Mahasiswa('Ni Komang Mirna Asih', '2415051018');
+  mhs.login(); 
+}
