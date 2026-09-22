@@ -1,0 +1,37 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+
+Future<String> login(String username) async {
+  
+  await Future.delayed(Duration(seconds: 1));
+
+  if (username == 'admin') {
+    return 'Login berhasil';
+  } else {
+   
+    throw Exception('User tidak ditemukan');
+  }
+}
+
+Future<void> main() async {
+  print(' Pengujian Future dengan Error \n');
+
+  try {
+    print('Skenario 1: Login dengan username "admin"');
+    String hasilSukses = await login('admin');
+    print(hasilSukses);
+  } catch (e) {
+    print('Gagal: $e');
+  }
+
+  print('');
+
+  try {
+    print('Skenario 2: Login dengan username "budi"');
+    String hasilGagal = await login('budi');
+    print(hasilGagal);
+  } catch (e) {
+    print('Tertangkap Exception: $e');
+  }
+}
