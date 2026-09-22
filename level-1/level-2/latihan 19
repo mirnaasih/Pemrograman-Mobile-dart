@@ -1,0 +1,42 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+abstract class Pembayaran {
+  void proses();
+}
+
+class TransferBank implements Pembayaran {
+  String namaBank;
+  double jumlah;
+
+  TransferBank(this.namaBank, this.jumlah);
+
+  @override
+  void proses() {
+    print('Memproses pembayaran via Transfer Bank ($namaBank) sebesar Rp$jumlah');
+    print('Status: Menunggu konfirmasi verifikasi mutasi rekening.\n');
+  }
+}
+
+class EWallet implements Pembayaran {
+  String namaAplikasi;
+  double jumlah;
+
+  EWallet(this.namaAplikasi, this.jumlah);
+
+  @override
+  void proses() {
+    print('Memproses pembayaran via E-Wallet ($namaAplikasi) sebesar Rp$jumlah');
+    print('Status: Pembayaran instan berhasil diverifikasi.\n');
+  }
+}
+
+void main() {
+  print(' Pengujian Abstract Class dan Polimorfisme \n');
+
+  Pembayaran pembayaran1 = TransferBank('BCA', 500000.0);
+  Pembayaran pembayaran2 = EWallet('GoPay', 75000.0);
+
+  pembayaran1.proses();
+  pembayaran2.proses();
+}
