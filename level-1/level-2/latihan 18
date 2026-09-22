@@ -1,0 +1,37 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+class Mahasiswa {
+  String nama;
+  String nim;
+  int semester;
+  Mahasiswa(this.nama, this.nim, this.semester);
+  Mahasiswa.baru(this.nama, this.nim) : semester = 3;
+  String get statusSemester {
+    if (semester <= 2) {
+      return 'Awal';
+    } else if (semester <= 6) {
+      return 'Menengah';
+    } else {
+      return 'Akhir';
+    }
+  }
+
+  void tampilkanProfil() {
+    print('Nama             : $nama');
+    print('NIM              : $nim');
+    print('Semester         : $semester');
+    print('Status Semester  : $statusSemester\n');
+  }
+}
+
+void main() {
+  print(' Pengujian Named Constructor dan Getter\n');
+
+  Mahasiswa mhs1 = Mahasiswa('Ni Komang Mirna Asih', '2415051018', 5);
+  print('Profil Mahasiswa 1 (Constructor Biasa):');
+  mhs1.tampilkanProfil();
+  Mahasiswa mhs2 = Mahasiswa.baru('Artha', '2415051025');
+  print('Profil Mahasiswa 2 (Named Constructor .baru()):');
+  mhs2.tampilkanProfil();
+}
