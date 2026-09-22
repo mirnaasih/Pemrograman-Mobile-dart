@@ -1,0 +1,18 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+Future<String> ambilData() {
+  return Future.delayed(
+    Duration(seconds: 2),
+    () => 'Data berhasil diambil',
+  );
+}
+
+Future<void> main() async {
+  print('Mulai');
+
+  final data = await ambilData();
+  print(data);
+
+  print('Selesai');
+}
