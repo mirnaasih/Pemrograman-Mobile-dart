@@ -1,0 +1,117 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+// Capstone: Task Manager Sederhana
+
+import 'dart:async';
+enum KategoriTask { tugasKuliah, pekerjaan, pribadi }
+class Task {
+  String title;
+  bool isDone;
+  String? description; 
+  KategoriTask kategori;
+
+  Task(this.title, {this.isDone = false, this.description, required this.kategori});
+
+  @override
+  String toString() {
+    String status = isDone ? '[✓]' : '[ ]';
+    String desc = description != null ? ' - Deskripsi: $description' : '';
+    return '$status $title (${kategori.name})$desc';
+  }
+}
+class TaskManager {
+  List<Task> _tasks = [];
+  final _completedCountController = StreamController<int>.broadcast();
+  Stream<int> get completedCountStream => _completedCountController.stream;
+  void addTask(Task task) {
+    _tasks.add(task);
+    print('Berhasil ditambahkan: "${task.title}"');
+    _updateCompletedCount();
+  }
+  void completeTask(int index) {
+    if (index >= 0 && index < _tasks.length) {
+      _tasks[index].isDone = true;
+      print('Task "${_tasks[index].title}" ditandai selesai.');
+      _updateCompletedCount(); 
+    } else {
+      print('Indeks task tidak valid!');
+    }
+  }
+  void deleteTask(int index) {
+    if (index >= 0 && index < _tasks.length) {
+      print('Task "${_tasks[index].title}" dihapus.');
+      _tasks.removeAt(index);
+      _updateCompletedCount();
+    } else {
+      print('Indeks task tidak valid!');
+    }
+  }
+
+  // 3. Method showTasks()
+  void showTasks() {
+    print('\nDaftar Task Saat Ini');
+    if (_tasks.isEmpty) {
+      print('Belum ada task.');
+    } else {
+      for (int i = 0; i < _tasks.length; i++) {
+        print('$i. ${_tasks[i]}');
+      }
+    }
+    print('\n');
+  }
+  void _updateCompletedCount() {
+    int completedCount = _tasks.where((t) => t.isDone).length;
+    _completedCountController.add(completedCount);
+  }
+
+  Future<void> syncTasks({bool triggerError = false}) async {
+    print('Menginisialisasi sinkronisasi ke cloud...');
+    await Future.delayed(Duration(seconds: 2));
+    if (triggerError) {
+      throw Exception('Gagal terhubung ke server cloud! Periksa koneksi internet Anda.');
+    }
+
+    print('Sinkronisasi cloud berhasil diselesaikan!');
+  }
+  void dispose() {
+    _completedCountController.close();
+  }
+}
+Future<void> main() async {
+  print('CAPSTONE DARTPAD: TASK MANAGER \n');
+
+  TaskManager manager = TaskManager();
+  manager.completedCountStream.listen((count) {
+    print('>> [STREAM NOTIFIKASI] Jumlah task yang sudah selesai sekarang: $count\n');
+  });
+
+  manager.addTask(Task('Belajar Pemrograman Mobile', description: 'Menyelesaikan modul Dart', kategori: KategoriTask.tugasKuliah));
+  manager.addTask(Task('Mengerjakan Laporan Praktikum', kategori: KategoriTask.tugasKuliah));
+  manager.addTask(Task('Belanja Bulanan', description: 'Beli buah dan sayur', kategori: KategoriTask.pribadi));
+
+  manager.showTasks();
+  manager.completeTask(0);
+  manager.completeTask(2);
+
+  manager.showTasks();
+  print('Simulasi Sinkronisasi Cloud (Berhasil) ');
+  try {
+    await manager.syncTasks(triggerError: false);
+  } catch (e) {
+    print('Terjadi error saat sync: $e');
+  }
+
+  print('');
+
+  print(' Simulasi Sinkronisasi Cloud (Gagal) ');
+  try {
+    await manager.syncTasks(triggerError: true);
+  } catch (e) {
+    print('Tertangkap Exception: $e');
+  }
+
+  manager.deleteTask(1);
+  manager.showTasks();
+
+  manager.dispose();
+}
