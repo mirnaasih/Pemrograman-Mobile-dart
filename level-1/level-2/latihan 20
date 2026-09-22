@@ -1,0 +1,35 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+double bagi(int a, int b) {
+ 
+  if (b == 0) {
+    throw ArgumentError('Pembagi tidak boleh bernilai nol (0)!');
+  }
+  return a / b;
+}
+
+void main() {
+  print('Pengujian Exception Handling \n');
+
+  try {
+    print('Skenario 1: Menghitung 10 / 2');
+    double hasil1 = bagi(10, 2);
+    print('Hasil: $hasil1');
+  } catch (e) {
+    print('Terjadi kesalahan: $e');
+  } finally {
+    print('Proses selesai.\n');
+  }
+  try {
+    print('Skenario 2: Menghitung 10 / 0 (Pemicu Error)');
+    double hasil2 = bagi(10, 0);
+    print('Hasil: $hasil2');
+  } on ArgumentError catch (e) {
+    print('Tertangkap ArgumentError khusus: ${e.message}');
+  } catch (e) {
+    print('Terjadi error umum: $e');
+  } finally {
+    print('Proses selesai.');
+  }
+}
