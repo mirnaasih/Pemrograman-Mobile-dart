@@ -1,0 +1,58 @@
+// Nama: Ni Komang Mirna Asih
+// NIM: 2415051018
+
+
+class User {
+  int id;
+  String nama;
+
+  User(this.id, this.nama);
+
+  @override
+  String toString() => 'User(ID: $id, Nama: $nama)';
+}
+Future<User> fetchUser(int id) async {
+  // Mensimulasikan latensi API jaringan selama 2 detik
+  await Future.delayed(Duration(seconds: 2));
+  if (id > 0) {
+    String namaUser = (id == 1) ? 'Ni Komang Mirna Asih' : 'User ke-$id';
+    return User(id, namaUser);
+  } else {
+    throw Exception('Gagal memuat data: ID user tidak valid ($id). ID harus lebih besar dari 0.');
+  }
+}
+
+Future<void> main() async {
+  print(' Mini Project: Simulasi API \n');
+  try {
+    print('Loading... (Mengambil data user ID 1)');
+    User user1 = await fetchUser(1);
+    print('Data berhasil diterima: $user1\n');
+  } catch (e) {
+    print('Terjadi error: $e\n');
+  }
+  try {
+    print('Loading... (Mengambil data user ID -5)');
+    User userInvalid = await fetchUser(-5);
+    print('Data berhasil diterima: $userInvalid\n');
+  } catch (e) {
+    print('Tertangkap Exception: $e\n');
+  }
+  print(' Challenge: Request Paralel dengan Future.wait ');
+  print('Loading... (Mengambil data beberapa user secara bersamaan)');
+
+  try {
+    List<User> listUserParalel = await Future.wait([
+      fetchUser(101),
+      fetchUser(102),
+      fetchUser(103),
+    ]);
+
+    print('\nSemua data user paralel berhasil dimuat:');
+    for (var u in listUserParalel) {
+      print('- $u');
+    }
+  } catch (e) {
+    print('Terjadi error pada request paralel: $e');
+  }
+}
